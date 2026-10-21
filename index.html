@@ -3,189 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نظام حجز وصيانة المركبات</title>
+<meta name="theme-color" content="#0b1f33">
+<title>مِرآب | حجز وصيانة المركبات</title>
 <style>
-- {
-  box-sizing: border-box;
+:root{
+  --navy:#0b1f33;--navy2:#12334d;--teal:#12b8ad;--teal-dark:#078c86;
+  --ink:#172b3d;--muted:#647789;--bg:#f3f7fa;--white:#fff;--line:#dce6ed;
+  --shadow:0 18px 50px rgba(11,31,51,.09);--radius:20px
 }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f3f6fa;
-  color: #243247;
-}
-header {
-  background: #12345a;
-  color: white;
-  padding: 22px 15px;
-  text-align: center;
-}
-header h1 {
-  margin: 0 0 10px;
-  font-size: 25px;
-}
-header p {
-  margin: 0;
-  color: #dce8f5;
-}
-nav {
-  background: white;
-  padding: 14px 8px;
-  text-align: center;
-  box-shadow: 0 2px 8px #00000010;
-}
-nav a {
-  display: inline-block;
-  color: #12345a;
-  text-decoration: none;
-  margin: 5px 8px;
-  font-weight: bold;
-}
-.hero {
-  padding: 35px 18px;
-  text-align: center;
-}
-.hero h2 {
-  color: #12345a;
-  font-size: 26px;
-}
-.hero p {
-  line-height: 1.9;
-  color: #586779;
-}
-.button {
-  display: inline-block;
-  background: #087f8c;
-  color: white;
-  padding: 13px 25px;
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-.container {
-  max-width: 650px;
-  margin: auto;
-  padding: 18px;
-}
-.card {
-  background: white;
-  padding: 22px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 15px #12345a12;
-}
-.card h2 {
-  color: #12345a;
-  margin-top: 0;
-}
-label {
-  display: block;
-  margin: 15px 0 7px;
-  font-weight: bold;
-}
-input, select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccd5df;
-  border-radius: 7px;
-  font-size: 16px;
-  background: white;
-}
-button {
-  width: 100%;
-}
-#message {
-  line-height: 2;
-  white-space: pre-line;
-  color: #08704a;
-  font-weight: bold;
-  overflow-wrap: anywhere;
-}
-footer {
-  background: #12345a;
-  color: white;
-  text-align: center;
-  padding: 18px;
-  margin-top: 20px;
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+.wrap{width:min(1140px,calc(100% - 36px));margin:auto}
+.topbar{background:var(--navy);color:#dce9f1;font-size:13px;padding:8px 0}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{background:rgba(255,255,255,.96);border-bottom:1px solid #e8eef2;position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:22px;color:var(--navy)}
+.brand-icon{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:var(--teal);color:var(--navy);font-size:23px}
+.navlinks{display:flex;align-items:center;gap:28px;color:#4d6172;font-weight:700;font-size:14px}
+.navlinks a:hover{color:var(--teal-dark)}
+.btn{border:0;display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--teal);color:var(--navy);padding:13px 21px;border-radius:12px;font-weight:900;cursor:pointer;transition:.2s}
+.btn:hover{background:#2ad0c4;transform:translateY(-1px)}
+.btn-dark{background:var(--navy);color:white}
+.btn-dark:hover{background:var(--navy2)}
+.hero{padding:54px 0 48px;background:radial-gradient(circle at 12% 15%,rgba(18,184,173,.11),transparent 27%),linear-gradient(180deg,#fff 0%,#f3f7fa 100%)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:44px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#e2faf7;color:#087e79;border:1px solid #c5f0eb;padding:6px 12px;border-radius:99px;font-size:13px;font-weight:800}
+.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal-dark)}
+h1{font-size:clamp(34px,4.5vw,55px);line-height:1.25;color:var(--navy);margin:18px 0 16px;letter-spacing:-1px}
+h1 span{color:var(--teal-dark)}
+.hero-copy{font-size:17px;color:var(--muted);max-width:520px;margin:0 0 24px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.trust-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px;color:#526879;font-size:13px;font-weight:700}
+.trust-row span{display:flex;align-items:center;gap:7px}
+.hero-visual{position:relative;min-height:390px}
+.hero-image{position:absolute;inset:0 0 20px 16px;border-radius:28px;background:#dbe8ed url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85") center/cover no-repeat;box-shadow:var(--shadow);overflow:hidden}
+.hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,23,38,.5),transparent 60%)}
+.floating-card{position:absolute;z-index:2;bottom:0;right:-5px;background:#fff;border:1px solid #e3edf1;border-radius:18px;padding:17px 20px;box-shadow:var(--shadow);display:flex;align-items:center;gap:13px}
+.float-icon{width:47px;height:47px;border-radius:14px;background:#e0faf6;display:grid;place-items:center;font-size:24px}
+.floating-card strong{display:block;color:var(--navy);font-size:15px}
+.floating-card small{color:var(--muted)}
+.stat-pill{position:absolute;z-index:2;left:-5px;top:25px;background:var(--navy);color:#fff;border-radius:16px;padding:13px 17px;box-shadow:var(--shadow)}
+.stat-pill strong{font-size:22px;color:var(--teal);display:block}
+.stat-pill small{font-size:12px;color:#d9e7ef}
+.section{padding:66px 0}
+.section-head{text-align:center;max-width:650px;margin:0 auto 32px}
+.section-head .eyebrow{margin-bottom:10px}
+h2{font-size:clamp(26px,3vw,36px);line-height:1.35;color:var(--navy);margin:0 0 12px}
+.section-head p{margin:0;color:var(--muted)}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service-card{background:#fff;border:1px solid #e4edf2;border-radius:18px;padding:24px;transition:.22s}
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#b6e9e4}
+.service-icon{width:55px;height:55px;border-radius:16px;background:#e4faf7;display:grid;place-items:center;font-size:27px;margin-bottom:17px}
+.service-card h3{margin:0 0 7px;color:var(--navy);font-size:19px}
+.service-card p{margin:0;color:var(--muted);font-size:14px}
+.service-tag{display:inline-block;margin-top:17px;padding:5px 10px;background:#f0f7fa;border-radius:8px;font-size:12px;font-weight:800;color:#486274}
+.booking-section{background:var(--navy);padding:68px 0;position:relative;overflow:hidden}
+.booking-section:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid #25445b;top:-260px;left:-130px}
+.booking-grid{position:relative;display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:start}
+.booking-intro{color:#d8e5ed;padding-top:12px}
+.booking-intro h2{color:#fff;font-size:36px}
+.booking-intro p{color:#b9cad5}
+.booking-benefits{display:grid;gap:13px;margin-top:26px}
+.booking-benefits span{display:flex;gap:10px;align-items:center;font-size:14px}
+.check{width:25px;height:25px;border-radius:8px;background:#173d51;color:var(--teal);display:grid;place-items:center;font-weight:900}
+.form-card{background:#fff;border-radius:24px;padding:clamp(22px,4vw,34px);box-shadow:0 25px 60px #03111e40}
+.form-card h3{margin:0;color:var(--navy);font-size:23px}
+.form-sub{color:var(--muted);font-size:14px;margin:4px 0 22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{min-width:0}
+.field.full{grid-column:1/-1}
+label{display:block;font-size:13px;font-weight:900;margin:0 0 7px;color:#30495b}
+input,select{width:100%;min-width:0;border:1px solid #d8e3e9;background:#fbfdfe;border-radius:11px;padding:12px 13px;color:var(--ink);outline:none;transition:.2s}
+input:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 3px #12b8ad20}
+input::placeholder{color:#9aabb7}
+.slot-help{font-size:12px;color:var(--muted);margin-top:6px}
+.form-submit{width:100%;margin-top:20px;padding:15px}
+.notice{display:none;margin-top:16px;border-radius:12px;padding:14px;background:#e5faf3;color:#096448;font-size:14px;white-space:pre-line;overflow-wrap:anywhere}
+.notice.error{background:#fff0ef;color:#a52d26}
+.form-note{font-size:11px;color:#80919d;text-align:center;margin:12px 0 0}
+footer{background:#071827;color:#b7c8d3;padding:28px 0}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;font-size:13px}
+.footer-brand{color:#fff;font-size:17px;font-weight:900}
+@media(max-width:850px){.hero-grid,.booking-grid{grid-template-columns:1fr}.hero-visual{min-height:340px;order:-1}.hero{padding-top:30px}.hero-copy{max-width:none}.services{grid-template-columns:repeat(2,1fr)}.booking-intro h2{font-size:30px}}
+@media(max-width:560px){.wrap{width:min(100% - 26px,1140px)}.nav{height:66px}.navlinks{display:none}.nav .btn{padding:10px 13px;font-size:13px}.brand{font-size:19px}.brand-icon{width:38px;height:38px}.hero{padding-bottom:30px}.hero-grid{gap:25px}.hero-visual{min-height:255px}.hero-image{inset:0 0 14px 8px;border-radius:21px}.floating-card{right:0;padding:11px 13px}.stat-pill{left:0;top:14px}.hero-copy{font-size:15px}.trust-row{gap:12px}.section{padding:48px 0}.services{grid-template-columns:1fr}.service-card{padding:20px}.booking-section{padding:48px 0}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.form-card{padding:21px 17px}.booking-intro h2{font-size:28px}}
 </style>
 </head>
 <body>
+<div class="topbar"><div class="wrap"><span>خدمة أسهل لمركبتك، ووقت أوفر لك</span><span>حجز إلكتروني • تجربة واضحة • خطوات بسيطة</span></div></div>
 <header>
-  <h1>نظام حجز وصيانة المركبات</h1>
-  <p>خدمات فحص وصيانة مركبتك بكل سهولة</p>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="مرآب - الرئيسية"><span class="brand-icon">⌁</span><span>مِرآب</span></a>
+    <nav class="navlinks" aria-label="القائمة الرئيسية">
+      <a href="#home">الرئيسية</a><a href="#services">خدماتنا</a><a href="#booking">احجز موعدك</a>
+    </nav>
+    <a class="btn" href="#booking">احجز الآن <span aria-hidden="true">←</span></a>
+  </div>
 </header>
-<nav>
-  <a href="#home">الرئيسية</a>
-  <a href="#services">الخدمات</a>
-  <a href="#booking">حجز موعد</a>
-</nav>
+<main>
 <section class="hero" id="home">
-  <h2>مرحبًا بك في نظام حجز المركبات</h2>
-  <p>
-    احجز موعد فحص أو صيانة لمركبتك بسهولة،
-    واختر الخدمة والموعد المناسب لك.
-  </p>
-  <a href="#booking" class="button">احجز موعدًا الآن</a>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">العناية بمركبتك تبدأ من هنا</span>
+      <h1>صيانة مركبتك،<br><span>بكل سهولة واطمئنان.</span></h1>
+      <p class="hero-copy">احجز موعد الفحص أو الصيانة بخطوات بسيطة. اختر الخدمة والوقت المناسب لك، وسجّل بيانات مركبتك في مكان واحد.</p>
+      <div class="hero-actions"><a class="btn" href="#booking">ابدأ حجزك الآن <span>←</span></a><a class="btn btn-dark" href="#services">اكتشف الخدمات</a></div>
+      <div class="trust-row"><span>✓ واجهة سهلة وواضحة</span><span>✓ خيارات خدمة متعددة</span><span>✓ حجز خلال دقائق</span></div>
+    </div>
+    <div class="hero-visual" aria-label="صورة سيارة">
+      <div class="hero-image" role="img" aria-label="سيارة حديثة"></div>
+      <div class="stat-pill"><strong>01</strong><small>خطوة نحو صيانة أسهل</small></div>
+      <div class="floating-card"><div class="float-icon">🛠️</div><div><strong>خدمة تناسب احتياجك</strong><small>اختر نوع الصيانة والموعد</small></div></div>
+    </div>
+  </div>
 </section>
-<div class="container">
-  <section class="card" id="services">
-    <h2>خدماتنا</h2>
-    <p>🔧 صيانة المركبات</p>
-    <p>🚘 فحص المركبات</p>
-    <p>📅 تنظيم مواعيد الحجز</p>
-  </section>
-  <section class="card" id="booking">
-    <h2>حجز موعد جديد</h2>
-<form id="bookingForm">
-  <label for="name">الاسم الكامل</label>
-  <input type="text" id="name"
-    placeholder="أدخل اسمك" required>
-  <label for="phone">رقم الجوال</label>
-  <input type="tel" id="phone"
-    placeholder="05xxxxxxxx" required>
-  <label for="car">نوع المركبة</label>
-  <input type="text" id="car"
-    placeholder="مثال: تويوتا كامري" required>
-  <label for="service">نوع الخدمة</label>
-  <select id="service" required>
-    <option value="">اختر الخدمة</option>
-    <option value="فحص مركبة">فحص مركبة</option>
-    <option value="صيانة مركبة">صيانة مركبة</option>
-  </select>
-  <label for="date">تاريخ الموعد</label>
-  <input type="date" id="date" required>
-  <button type="submit" class="button">
-    تأكيد الحجز
-  </button>
-</form>
-<p id="message" aria-live="polite"></p>
-  </section>
-</div>
-<footer>
-  <p>مشروع تخرج — نظام حجز وصيانة المركبات</p>
-</footer>
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">خدماتنا</span><h2>كل ما تحتاجه مركبتك في مكان واحد</h2><p>اختر الخدمة المناسبة، ثم حدّد الموعد الذي يلائم جدولك.</p></div>
+    <div class="services">
+      <article class="service-card"><div class="service-icon">🔍</div><h3>فحص شامل</h3><p>فحص مبدئي لمكونات المركبة للمساعدة في التعرف على احتياجاتها.</p><span class="service-tag">فحص المركبة</span></article>
+      <article class="service-card"><div class="service-icon">🛢️</div><h3>تغيير الزيت</h3><p>خدمة تغيير زيت المحرك للمساعدة في المحافظة على أداء المركبة.</p><span class="service-tag">صيانة دورية</span></article>
+      <article class="service-card"><div class="service-icon">🛠️</div><h3>صيانة عامة</h3><p>احجز موعدًا لمراجعة الأعطال واحتياجات الصيانة العامة.</p><span class="service-tag">خدمة صيانة</span></article>
+    </div>
+  </div>
+</section>
+<section class="booking-section" id="booking">
+  <div class="wrap booking-grid">
+    <div class="booking-intro">
+      <span class="eyebrow">حجز سريع وسهل</span>
+      <h2>لنحدّد موعد صيانة مركبتك.</h2>
+      <p>أدخل بيانات التواصل والمركبة، ثم اختر الخدمة والتاريخ والوقت من الخيارات المتاحة في هذه الواجهة التجريبية.</p>
+      <div class="booking-benefits"><span><i class="check">✓</i> بيانات الحجز في نموذج واحد</span><span><i class="check">✓</i> اختيار التاريخ والوقت</span><span><i class="check">✓</i> ملخص فوري قبل إنهاء الطلب</span></div>
+    </div>
+    <div class="form-card">
+      <h3>احجز موعدًا جديدًا</h3><p class="form-sub">جميع الحقول المطلوبة موضحة أدناه.</p>
+      <form id="bookingForm">
+        <div class="form-grid">
+          <div class="field"><label for="name">الاسم الكامل</label><input id="name" name="name" autocomplete="name" placeholder="مثال: محمد أحمد" required maxlength="80"></div>
+          <div class="field"><label for="phone">رقم الجوال</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" pattern="05[0-9]{8}" title="أدخل رقم جوال سعودي يبدأ بـ 05 ويتكون من 10 أرقام" required></div>
+          <div class="field"><label for="car">نوع المركبة</label><input id="car" name="car" placeholder="مثال: تويوتا كامري" required maxlength="80"></div>
+          <div class="field"><label for="plate">رقم لوحة المركبة</label><input id="plate" name="plate" placeholder="أدخل رقم اللوحة" required maxlength="20"></div>
+          <div class="field full"><label for="service">نوع الخدمة</label><select id="service" name="service" required><option value="">اختر الخدمة</option><option>فحص شامل</option><option>تغيير الزيت</option><option>صيانة عامة</option><option>صيانة المكابح</option><option>صيانة المكيف</option></select></div>
+          <div class="field"><label for="date">تاريخ الموعد</label><input id="date" name="date" type="date" required></div>
+          <div class="field"><label for="slot">الوقت المتاح</label><select id="slot" name="slot" required disabled><option value="">اختر التاريخ أولًا</option></select><div class="slot-help" id="slotHelp">تظهر الأوقات التجريبية بعد اختيار التاريخ.</div></div>
+        </div>
+        <button class="btn form-submit" type="submit">تأكيد طلب الحجز <span>←</span></button>
+        <div class="notice" id="message" role="status" aria-live="polite"></div>
+        <p class="form-note">تنبيه: هذه نسخة واجهة تجريبية؛ لا تُرسل البيانات إلى مركز صيانة ولا تحفظها في قاعدة بيانات.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap footer-row"><span class="footer-brand">مِرآب</span><span>مشروع حجز وصيانة المركبات</span><span>واجهة تجريبية لأغراض العرض والتطوير</span></div></footer>
 <script>
-document.getElementById("bookingForm")
-.addEventListener("submit", function(event) {
-  event.preventDefault();
-  const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
-  const car = document.getElementById("car").value;
-  const service = document.getElementById("service").value;
-  const date = document.getElementById("date").value;
-  document.getElementById("message").textContent =
-    "شكرًا " + name +
-    "، تم استلام طلبك بنجاح.\n" +
-    "رقم الجوال: " + phone + "\n" +
-    "نوع المركبة: " + car + "\n" +
-    "الخدمة: " + service + "\n" +
-    "تاريخ الموعد: " + date + "\n" +
-    "ملاحظة: هذا تأكيد تجريبي للواجهة.";
-});
+(function(){
+  const dateInput=document.getElementById('date');
+  const slotSelect=document.getElementById('slot');
+  const slotHelp=document.getElementById('slotHelp');
+  const form=document.getElementById('bookingForm');
+  const message=document.getElementById('message');
+  const today=new Date();
+  const localToday=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+  dateInput.min=localToday;
+  const times=['09:00 صباحًا','10:30 صباحًا','12:00 ظهرًا','02:00 مساءً','03:30 مساءً','05:00 مساءً'];
+  function refreshSlots(){
+    slotSelect.innerHTML='';
+    const selected=dateInput.value;
+    if(!selected){slotSelect.disabled=true;slotSelect.add(new Option('اختر التاريخ أولًا',''));slotHelp.textContent='تظهر الأوقات التجريبية بعد اختيار التاريخ.';return;}
+    if(selected<localToday){slotSelect.disabled=true;slotSelect.add(new Option('اختر تاريخًا صحيحًا',''));slotHelp.textContent='لا يمكن اختيار تاريخ سابق.';return;}
+    slotSelect.disabled=false;
+    slotSelect.add(new Option('اختر الوقت المناسب',''));
+    // أوقات تجريبية للعرض فقط وليست جدول مواعيد حقيقيًا.
+    times.forEach((time,index)=>{if((selected.charCodeAt(selected.length-1)+index)%7!==0)slotSelect.add(new Option(time,time));});
+    slotHelp.textContent='أوقات تجريبية للعرض؛ لا تعكس توفر مركز صيانة حقيقي.';
+  }
+  dateInput.addEventListener('change',()=>{message.style.display='none';refreshSlots();});
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    message.className='notice';
+    if(!form.reportValidity())return;
+    const data=new FormData(form);
+    message.textContent='تم تجهيز طلب الحجز التجريبي بنجاح، '+data.get('name')+'.\\nرقم الجوال: '+data.get('phone')+'\\nالمركبة: '+data.get('car')+'\\nرقم اللوحة: '+data.get('plate')+'\\nالخدمة: '+data.get('service')+'\\nالتاريخ: '+data.get('date')+'\\nالوقت: '+data.get('slot')+'\\n\\nهذا تأكيد تجريبي فقط؛ لم يتم إرسال الحجز أو حفظه في قاعدة بيانات.';
+    message.style.display='block';
+    message.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+  refreshSlots();
+})();
 </script>
 </body>
 </html>
