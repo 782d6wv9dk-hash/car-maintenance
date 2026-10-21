@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظام حجز وصيانة المركبات</title>
+<style>
+- {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6fa;
+  color: #243247;
+}
+header {
+  background: #12345a;
+  color: white;
+  padding: 22px 15px;
+  text-align: center;
+}
+header h1 {
+  margin: 0 0 10px;
+  font-size: 25px;
+}
+header p {
+  margin: 0;
+  color: #dce8f5;
+}
+nav {
+  background: white;
+  padding: 14px 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px #00000010;
+}
+nav a {
+  display: inline-block;
+  color: #12345a;
+  text-decoration: none;
+  margin: 5px 8px;
+  font-weight: bold;
+}
+.hero {
+  padding: 35px 18px;
+  text-align: center;
+}
+.hero h2 {
+  color: #12345a;
+  font-size: 26px;
+}
+.hero p {
+  line-height: 1.9;
+  color: #586779;
+}
+.button {
+  display: inline-block;
+  background: #087f8c;
+  color: white;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.container {
+  max-width: 650px;
+  margin: auto;
+  padding: 18px;
+}
+.card {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px #12345a12;
+}
+.card h2 {
+  color: #12345a;
+  margin-top: 0;
+}
+label {
+  display: block;
+  margin: 15px 0 7px;
+  font-weight: bold;
+}
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccd5df;
+  border-radius: 7px;
+  font-size: 16px;
+  background: white;
+}
+button {
+  width: 100%;
+}
+#message {
+  line-height: 2;
+  white-space: pre-line;
+  color: #08704a;
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+footer {
+  background: #12345a;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>نظام حجز وصيانة المركبات</h1>
+  <p>خدمات فحص وصيانة مركبتك بكل سهولة</p>
+</header>
+<nav>
+  <a href="#home">الرئيسية</a>
+  <a href="#services">الخدمات</a>
+  <a href="#booking">حجز موعد</a>
+</nav>
+<section class="hero" id="home">
+  <h2>مرحبًا بك في نظام حجز المركبات</h2>
+  <p>
+    احجز موعد فحص أو صيانة لمركبتك بسهولة،
+    واختر الخدمة والموعد المناسب لك.
+  </p>
+  <a href="#booking" class="button">احجز موعدًا الآن</a>
+</section>
+<div class="container">
+  <section class="card" id="services">
+    <h2>خدماتنا</h2>
+    <p>🔧 صيانة المركبات</p>
+    <p>🚘 فحص المركبات</p>
+    <p>📅 تنظيم مواعيد الحجز</p>
+  </section>
+  <section class="card" id="booking">
+    <h2>حجز موعد جديد</h2>
+<form id="bookingForm">
+  <label for="name">الاسم الكامل</label>
+  <input type="text" id="name"
+    placeholder="أدخل اسمك" required>
+  <label for="phone">رقم الجوال</label>
+  <input type="tel" id="phone"
+    placeholder="05xxxxxxxx" required>
+  <label for="car">نوع المركبة</label>
+  <input type="text" id="car"
+    placeholder="مثال: تويوتا كامري" required>
+  <label for="service">نوع الخدمة</label>
+  <select id="service" required>
+    <option value="">اختر الخدمة</option>
+    <option value="فحص مركبة">فحص مركبة</option>
+    <option value="صيانة مركبة">صيانة مركبة</option>
+  </select>
+  <label for="date">تاريخ الموعد</label>
+  <input type="date" id="date" required>
+  <button type="submit" class="button">
+    تأكيد الحجز
+  </button>
+</form>
+<p id="message" aria-live="polite"></p>
+  </section>
+</div>
+<footer>
+  <p>مشروع تخرج — نظام حجز وصيانة المركبات</p>
+</footer>
+<script>
+document.getElementById("bookingForm")
+.addEventListener("submit", function(event) {
+  event.preventDefault();
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const car = document.getElementById("car").value;
+  const service = document.getElementById("service").value;
+  const date = document.getElementById("date").value;
+  document.getElementById("message").textContent =
+    "شكرًا " + name +
+    "، تم استلام طلبك بنجاح.\n" +
+    "رقم الجوال: " + phone + "\n" +
+    "نوع المركبة: " + car + "\n" +
+    "الخدمة: " + service + "\n" +
+    "تاريخ الموعد: " + date + "\n" +
+    "ملاحظة: هذا تأكيد تجريبي للواجهة.";
+});
+</script>
+</body>
+</html>
